@@ -1,4 +1,8 @@
-local modpath = minetest.get_modpath(minetest.get_current_modname())
+local modname = minetest.get_current_modname()
+local modpath = minetest.get_modpath(modname)
+
+-- Translator
+local S = minetest.get_translator(modname)
 
 dofile(modpath .. "/privs.lua")
 dofile(modpath .. "/storage.lua")
@@ -25,7 +29,7 @@ minetest.register_chatcommand("edit", {
 	privs = { panel_admin = true },
 	func = function(name, param)
 		if param == "" then
-			return false, "Usá: /edit <nombre>"
+			return false, S("Use: /edit <name>")
 		end
 
 		local player = minetest.get_player_by_name(name)
@@ -69,9 +73,10 @@ minetest.register_on_player_receive_fields(function(player, formname, fields)
 				text = fields.text or ""
 			}
 			simple_panels.save()
+
 			minetest.chat_send_player(
 				name,
-				"Panel '" .. panel_name .. "' guardado"
+				S("Panel saved")
 			)
 		end
 	end

@@ -1,0 +1,9 @@
+Simple Panels
+
+Lightweight panel system for Minetest servers.
+
+Features:
+- Create panels using a visual editor
+- Show panels with colors and buttons
+- Admin-only access
+- Very lightweight, no dependencies
